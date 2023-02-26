@@ -18,7 +18,7 @@ RUN set -xeu; \
     ! ldd curl && :; \
     ./curl -V
 
-# slim static coreutils image
+# slim static Curl image
 FROM ghcr.io/awesome-containers/static-bash:$STATIC_BASH_VERSION-slim AS static-bash
 COPY --from=static-curl /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /src/curl/curl /bin/curl
