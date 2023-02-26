@@ -6,10 +6,10 @@ Statically linked **Curl** container image with [Bash]
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest
-ghcr.io/awesome-containers/static-curl:9.1
+ghcr.io/awesome-containers/static-curl:7.88.1
 
 docker.io/awesomecontainers/static-curl:latest
-docker.io/awesomecontainers/static-curl:9.1
+docker.io/awesomecontainers/static-curl:7.88.1
 ```
 
 Slim statically linked **Curl** container image with [Bash] stripped and
@@ -19,10 +19,10 @@ packaged with [UPX]
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest-slim
-ghcr.io/awesome-containers/static-curl:9.1-slim
+ghcr.io/awesome-containers/static-curl:7.88.1-slim
 
 docker.io/awesomecontainers/static-curl:latest-slim
-docker.io/awesomecontainers/static-curl:9.1-slim
+docker.io/awesomecontainers/static-curl:7.88.1-slim
 ```
 
 * <https://curl.se/>
