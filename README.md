@@ -1,6 +1,6 @@
 # Statically linked Curl
 
-Statically linked Curl container image with Bash 5.2
+Statically linked **Curl** container image with [Bash]
 
 > 16M
 
@@ -12,7 +12,8 @@ docker.io/awesomecontainers/static-curl:latest
 docker.io/awesomecontainers/static-curl:9.1
 ```
 
-Slim statically linked Curl container image with Bash 5.2 packaged with UPX
+Slim statically linked **Curl** container image with [Bash] stripped and
+packaged with [UPX]
 
 > 1.8M
 
@@ -26,4 +27,6 @@ docker.io/awesomecontainers/static-curl:9.1-slim
 
 * <https://curl.se/>
 * <https://curl.se/download/>
-* <https://github.com/awesome-containers/slim-static-bash>
+
+[Bash]: https://github.com/awesome-containers/static-bash
+[UPX]: https://upx.github.io/
