@@ -1,16 +1,24 @@
 # https://github.com/awesome-containers/static-bash
 ARG STATIC_BASH_VERSION=5.2.15
+ARG STATIC_BASH_IMAGE=ghcr.io/awesome-containers/static-bash
+
+# https://github.com/awesome-containers/static-curl
 ARG STATIC_CURL_VERSION=7.88.1
+ARG STATIC_CURL_IMAGE=ghcr.io/awesome-containers/static-curl
 
-FROM ghcr.io/awesome-containers/static-curl:$STATIC_CURL_VERSION AS static-curl
+# https://github.com/awesome-containers/alpine-build-essential
+ARG BUILD_ESSENTIAL_VERSION=3.17
+ARG BUILD_ESSENTIAL_IMAGE=ghcr.io/awesome-containers/alpine-build-essential
 
-FROM ghcr.io/awesome-containers/alpine-build-essential:3.17 AS build
+
+FROM $STATIC_BASH_IMAGE:$STATIC_BASH_VERSION-slim AS static-bash
+FROM $STATIC_CURL_IMAGE:$STATIC_CURL_VERSION AS static-curl
+FROM $BUILD_ESSENTIAL_IMAGE:$BUILD_ESSENTIAL_VERSION AS build
 
 WORKDIR /src/curl
 COPY --from=static-curl /bin/curl ./curl
 
 RUN set -xeu; \
-    strip -s -R .comment -R .gnu.version --strip-unneeded curl; \
     upx --no-progress --no-color curl; \
     upx -t --no-progress --no-color curl; \
     chmod -cR 755 curl; \
@@ -19,6 +27,6 @@ RUN set -xeu; \
     ./curl -V
 
 # slim static Curl image
-FROM ghcr.io/awesome-containers/static-bash:$STATIC_BASH_VERSION-slim AS static-bash
+FROM static-bash
 COPY --from=static-curl /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /src/curl/curl /bin/curl

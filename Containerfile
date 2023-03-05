@@ -1,7 +1,14 @@
 # https://github.com/awesome-containers/static-bash
 ARG STATIC_BASH_VERSION=5.2.15
+ARG STATIC_BASH_IMAGE=ghcr.io/awesome-containers/static-bash
 
-FROM ghcr.io/awesome-containers/alpine-build-essential:3.17 AS build
+# https://github.com/awesome-containers/alpine-build-essential
+ARG BUILD_ESSENTIAL_VERSION=3.17
+ARG BUILD_ESSENTIAL_IMAGE=ghcr.io/awesome-containers/alpine-build-essential
+
+
+FROM $STATIC_BASH_IMAGE:$STATIC_BASH_VERSION AS static-bash
+FROM $BUILD_ESSENTIAL_IMAGE:$BUILD_ESSENTIAL_VERSION AS build
 
 # hadolint ignore=DL3018
 RUN apk add --no-cache \
@@ -30,12 +37,13 @@ RUN set -xeu; \
         --enable-static --enable-ipv6 --enable-unix-sockets --enable-websockets \
         --disable-shared --disable-ldap; \
     make -j"$(nproc)"; \
+    strip -s -R .comment --strip-unneeded src/curl; \
     chmod -cR 755 src/curl; \
     chown -cR 0:0 src/curl; \
-    ! ldd curl && :; \
+    ! ldd src/curl && :; \
     ./src/curl -V
 
 # static Curl image
-FROM ghcr.io/awesome-containers/static-bash:$STATIC_BASH_VERSION
+FROM static-bash
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /src/curl/src/curl /bin/curl
