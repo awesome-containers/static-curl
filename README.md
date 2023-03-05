@@ -2,7 +2,7 @@
 
 Statically linked [Curl] container image with [Bash]
 
-> ~ 8,9M
+> ~ 5.5M (1,1M bash)
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest
@@ -14,7 +14,7 @@ docker.io/awesomecontainers/static-curl:7.88.1
 
 Slim statically linked [Curl] container image with [Bash] packaged with [UPX]
 
-> ~ 2,6M
+> ~ 2,6M (578K bash)
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest-slim
