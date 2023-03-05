@@ -26,6 +26,7 @@ jobs:
         with:
           repository: awesome-containers/static-bash
           excludes: prerelease, draft
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to GitHub Container registry
         if: github.event_name != 'pull_request'
