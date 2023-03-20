@@ -3,7 +3,7 @@ ARG STATIC_BASH_VERSION=5.2.15
 ARG STATIC_BASH_IMAGE=ghcr.io/awesome-containers/static-bash
 
 # https://github.com/awesome-containers/static-curl
-ARG STATIC_CURL_VERSION=7.88.1
+ARG STATIC_CURL_VERSION=8.0.1
 ARG STATIC_CURL_IMAGE=ghcr.io/awesome-containers/static-curl
 
 # https://github.com/awesome-containers/alpine-build-essential

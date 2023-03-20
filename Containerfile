@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     nghttp2-dev nghttp2-static libssh2-dev libssh2-static zlib-static
 
 # https://curl.se/download/
-ARG CURL_VERSION=7.88.1
+ARG CURL_VERSION=8.0.1
 
 WORKDIR /src/curl
 RUN set -xeu; \

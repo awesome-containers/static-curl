@@ -6,22 +6,22 @@ Statically linked [Curl] container image with [Bash]
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest
-ghcr.io/awesome-containers/static-curl:7.88.1
+ghcr.io/awesome-containers/static-curl:8.0.1
 
 docker.io/awesomecontainers/static-curl:latest
-docker.io/awesomecontainers/static-curl:7.88.1
+docker.io/awesomecontainers/static-curl:8.0.1
 ```
 
 Slim statically linked [Curl] container image with [Bash] packaged with [UPX]
 
-> ~ 2,6M (578K bash)
+> ~ 2,7M (578K bash)
 
 ```bash
 ghcr.io/awesome-containers/static-curl:latest-slim
-ghcr.io/awesome-containers/static-curl:7.88.1-slim
+ghcr.io/awesome-containers/static-curl:8.0.1-slim
 
 docker.io/awesomecontainers/static-curl:latest-slim
-docker.io/awesomecontainers/static-curl:7.88.1-slim
+docker.io/awesomecontainers/static-curl:8.0.1-slim
 ```
 
 [Curl]: https://curl.se/
